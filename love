@@ -70,8 +70,29 @@ views:
         name: Alarma
       - type: thermostat
         entity: climate.aire_acondicionado
-      - type: media-control
-        entity: media_player.tv
+      - type: entities
+        entities:
+          - type: custom:mini-media-player
+            entity: media_player.tv
+            group: true
+            info: short
+            hide:
+              power: true
+              info: true
+              progress: true
+          - type: custom:mini-media-player
+            entity: media_player.cocina
+            group: true
+            hide:
+              power: true
+              info: true
+          - type: custom:mini-media-player
+            entity: media_player.grupo
+            group: true
+            hide:
+              power: true
+              info: true
+        title: 'Multimedia '
       - type: media-control
         entity: media_player.grupo
       - type: entities

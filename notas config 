@@ -23,3 +23,8 @@ lovelace:
       type: css
     - url: https://fonts.googleapis.com/css?family=Dosis
       type: css
+
+
+
+- type: custom:mini-media-player
+  entity: media_player.tv
