@@ -1,0 +1,292 @@
+title: Home
+views:
+  - title: Home
+    path: home
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: light.luz_ambiente
+          - entity: light.luz_mesada
+          - entity: light.luz_techo
+        title: Cocina
+        state_color: true
+        show_header_toggle: false
+      - type: entities
+        entities:
+          - entity: light.luz
+          - entity: light.luz_espejo
+          - entity: switch.extractor
+            name: 'Extractor '
+            icon: hass:fan
+        title: Baño
+        state_color: true
+        show_header_toggle: false
+      - type: entities
+        entities:
+          - entity: light.luz_ingreso
+          - entity: light.luz_comedor
+          - entity: light.tasmota_70039f05fa05_light_light_2
+        title: Comedor
+      - type: entities
+        entities:
+          - entity: light.luz_pasillo
+          - entity: light.luz_living
+          - entity: light.luz_balcon
+          - entity: light.luz_living_2
+        title: Living
+        show_header_toggle: false
+      - type: picture-glance
+        title: Camera
+        image: http://192.168.1.11
+        entities:
+          - entity: light.camera
+        camera_view: live
+        aspect_ratio: '16:10'
+        entity: sensor.camera_status
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        camera_image: camera.camara
+      - type: entities
+        entities:
+          - entity: cover.cortina01_cover_1
+        title: Cortina
+        state_color: true
+        show_header_toggle: true
+      - type: media-control
+        entity: media_player.cocina
+      - type: entities
+        entities:
+          - sensor.camera_esp32_temperature
+      - type: alarm-panel
+        states:
+          - arm_home
+          - arm_away
+          - arm_night
+          - arm_custom_bypass
+        entity: alarm_control_panel.alarma
+        name: Alarma
+      - type: thermostat
+        entity: climate.aire_acondicionado
+      - type: media-control
+        entity: media_player.tv
+      - type: media-control
+        entity: media_player.grupo
+      - type: entities
+        entities:
+          - entity: light.camera
+          - entity: alarm_control_panel.alarma
+  - panel: true
+    title: Camera
+    path: camera
+    badges: []
+    cards:
+      - type: picture-glance
+        title: Camera
+        image: http://192.168.1.11
+        entities:
+          - entity: light.camera
+        camera_view: live
+        aspect_ratio: '16:10'
+        entity: sensor.camera_status
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        camera_image: camera.camara
+  - path: default_view
+    title: Administración
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.bano_rssi
+          - entity: sensor.bano_signal
+          - entity: sensor.bano_ip
+          - entity: sensor.bano_last_restart_time
+          - entity: sensor.bano_restart_reason
+        title: Baño
+        state_color: true
+        show_header_toggle: false
+        footer:
+          type: graph
+          entity: sensor.bano_signal
+          hours_to_show: 12
+          detail: 2
+        header:
+          type: graph
+          entity: sensor.bano_rssi
+          hours_to_show: 24
+          detail: 2
+      - type: entities
+        entities:
+          - entity: sensor.cocina_rssi
+          - entity: sensor.cocina_signal
+          - entity: sensor.cocina_ip
+          - entity: sensor.cocina_last_restart_time
+          - entity: sensor.cocina_restart_reason
+        title: Cocina
+        state_color: true
+        show_header_toggle: false
+        footer:
+          type: graph
+          entity: sensor.cocina_signal
+          detail: 2
+          hours_to_show: 12
+        header:
+          type: graph
+          entity: sensor.cocina_rssi
+          hours_to_show: 24
+          detail: 2
+      - type: entities
+        entities:
+          - entity: sensor.comedor_rssi
+          - entity: sensor.comedor_signal
+          - entity: sensor.comedor_ip
+          - entity: sensor.comedor_last_restart_time
+          - entity: sensor.comedor_restart_reason
+        title: Living
+        state_color: true
+        show_header_toggle: false
+        footer:
+          type: graph
+          entity: sensor.tasmota_signal_2
+          detail: 2
+          hours_to_show: 12
+        header:
+          type: graph
+          entity: sensor.tasmota_rssi_2
+          hours_to_show: 24
+          detail: 2
+      - type: entities
+        entities:
+          - entity: sensor.tasmota_rssi_2
+          - entity: sensor.tasmota_signal_2
+          - entity: sensor.tasmota_ip_2
+          - entity: sensor.tasmota_last_restart_time_2
+          - entity: sensor.tasmota_restart_reason_2
+        title: Comedor
+        state_color: true
+        show_header_toggle: false
+        footer:
+          type: graph
+          entity: sensor.comedor_signal
+          detail: 2
+          hours_to_show: 12
+        header:
+          type: graph
+          entity: sensor.comedor_rssi
+          hours_to_show: 24
+          detail: 2
+      - type: entities
+        entities:
+          - entity: sensor.shutter01_rssi
+          - entity: sensor.shutter01_signal
+          - entity: sensor.shutter01_ip
+          - entity: sensor.shutter01_last_restart_time
+          - entity: sensor.shutter01_restart_reason
+        title: Cortina
+        state_color: true
+        show_header_toggle: true
+        footer:
+          type: graph
+          entity: sensor.shutter01_signal
+          detail: 2
+          hours_to_show: 4
+        header:
+          type: graph
+          entity: sensor.shutter01_rssi
+          hours_to_show: 24
+          detail: 2
+      - type: entities
+        entities:
+          - binary_sensor.rpi_power_status
+          - binary_sensor.updater
+        title: Sensor binario
+      - type: entities
+        entities:
+          - entity: sensor.camera_status
+      - type: entities
+        entities:
+          - entity: sensor.comedor_signal
+          - entity: sensor.shutter01_signal
+          - entity: sensor.shutter01_ip
+          - entity: sensor.shutter01_last_restart_time
+          - entity: sensor.shutter01_restart_reason
+        title: Cortina
+        state_color: true
+        show_header_toggle: true
+        footer:
+          type: graph
+          entity: sensor.shutter01_signal
+          detail: 2
+          hours_to_show: 4
+        header:
+          type: graph
+          entity: sensor.shutter01_rssi
+          hours_to_show: 24
+          detail: 2
+  - title: Develop
+    path: develop
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: binary_sensor.button_1
+          - entity: binary_sensor.button_2
+          - entity: binary_sensor.button_3
+          - entity: binary_sensor.button_4
+          - entity: binary_sensor.button_5
+          - entity: binary_sensor.button_6
+          - entity: binary_sensor.button_7
+          - entity: binary_sensor.button_8
+          - entity: binary_sensor.button_9
+          - entity: binary_sensor.button_10
+          - entity: binary_sensor.button_11
+          - entity: binary_sensor.button_12
+          - entity: binary_sensor.button_13
+          - entity: binary_sensor.button_14
+      - type: entities
+        entities:
+          - sensor.tasmota_counter_c1
+      - type: light
+        entity: light.tasmota
+      - type: light
+        entity: light.tasmota3
+  - panel: true
+    title: 'volumen '
+    path: volumen-
+    badges: []
+    cards:
+      - - type: entities
+          entities:
+            - type: custom:mini-media-player
+              entity: media_player.multiroom_player
+              group: true
+              source: icon
+              info: short
+              hide:
+                volume: true
+                power: true
+            - type: custom:mini-media-player
+              entity: media_player.kitchen_speakers
+              group: true
+              hide:
+                controls: true
+            - type: custom:mini-media-player
+              entity: media_player.bathroom_speakers
+              group: true
+              hide:
+                controls: true
+            - type: custom:mini-media-player
+              entity: media_player.bedroom_speakers
+              group: true
+              hide:
+                controls: true
+            - type: custom:mini-media-player
+              entity: media_player.patio_speakers
+              group: true
+              hide:
+                controls: true
